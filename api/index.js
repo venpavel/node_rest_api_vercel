@@ -8,7 +8,8 @@ const jsonParser = express.json();
 app.use(express.static(__dirname + "/public"));
 
 const filePathStatic = __dirname + "/users.json";
-const filePath = fs.copyFileSync(filePathStatic, "/tmp/users.json");
+fs.copyFileSync(filePathStatic, "/tmp/users.json");
+const filePath = "/tmp/users.json";
 
 app.get("/api/users", function (req, res) {
   res.setHeader("Content-Type", "text/html");
