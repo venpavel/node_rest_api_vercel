@@ -1,15 +1,8 @@
 {
     "name": "webapp",
     "version": "1.0.0",
-    "scripts": {
-        "test": "mocha ./tests/*.test.js"
-    },
     "dependencies": {
-        "express": "^4.18.2"
-    },
-    "devDependencies": {
-        "assert": "^2.0.0",
-        "mocha": "^10.2.0",
-        "supertest": "^6.3.3"
+        "express": "^4.18.2",
+        "uuid": "^9.0.0"
     }
 }
