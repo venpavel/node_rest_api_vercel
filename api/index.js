@@ -1,7 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const app = express();
-const { v4 } = require("uuid");
+const { v4 } = require("uuid"); // fix for vercel.com
 
 const jsonParser = express.json();
 
@@ -9,7 +9,7 @@ app.use(express.static(__dirname + "/public"));
 
 const filePathStatic = __dirname + "/users.json";
 fs.copyFileSync(filePathStatic, "/tmp/users.json");
-const filePath = "/tmp/users.json";
+const filePath = "/tmp/users.json"; // fix for vercel.com (read only files, only tmp folder writable)
 
 app.get("/api/users", function (req, res) {
   res.setHeader("Content-Type", "text/html");
@@ -118,6 +118,8 @@ app.put("/api/users", jsonParser, function (req, res) {
     res.send(user);
   }
 });
+
+// fix for vercel.com :
 
 /*
 const server = app.listen(3000, () => {
